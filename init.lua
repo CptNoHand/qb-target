@@ -27,7 +27,7 @@ Config.Debug = false
 Config.Standalone = false
 
 -- Enable outlines around the entity you're looking at
-Config.EnableOutline = false
+Config.EnableOutline = true
 
 -- Whether to have the target as a toggle or not
 Config.Toggle = false
@@ -83,6 +83,150 @@ Config.TargetBones = {
 
 Config.TargetModels = {
 
+	-- In Config.TargetModels
+    ["targetmodel2"] = {
+        models = {
+            "csb_trafficwarden"
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-firejob:garage", --event that opens the garage
+                icon = "fas fa-car",
+                label = "Garage",
+                job = "lsfd",
+            },
+        },
+        distance = 2.5,
+    },
+	-- In Config.TargetModels
+    ["targetmodel2"] = {
+        models = {
+            "csb_trafficwarden"
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-firejob:garage", --event that opens the garage
+                icon = "fas fa-car",
+                label = "Garage",
+                job = "lsfd",
+            },
+        },
+        distance = 2.5,
+    },
+
+	["lsfdcar"] = {
+		models = {
+			-- add car names here
+			"firetruk",
+			"lsfd5",
+			"lsfd2"
+		},
+		options = {
+            {
+                type = "client",
+                event = "qb-firejob:client:hose",
+                icon = "fas fa-fire-extinguisher",
+                label = "Hose",
+                job = 'lsfd'
+            },
+            {
+                type = "client",
+                event = "qb-firejob:client:resupply",
+                icon = "fas fa-fire-extinguisher",
+                label = "Resupply",
+                job = 'lsfd'
+            },
+        },
+		distance = 2.5,
+	},
+
+    ["lsfd"] = {
+		models = {-2137905671},
+        options = {
+            {
+                type = "client",
+                event = "Toggle:LSFDDuty", -- event that toggles player duty
+                icon = "fas fa-sign-in-alt",
+                label = "On/Off Duty",
+                job = "lsfd",
+            },
+        },
+	distance = 2.5,
+    },
+	
+	["atms"] = {
+        models = {
+            'prop_atm_01',
+            'prop_atm_02',
+            'prop_atm_03',
+            'prop_fleeca_atm',
+        },
+        options = {
+            {
+                type = "command",
+                event = "atm",
+                icon = "fab fa-credit-card",
+                label = "Insert Card",
+            },
+        },
+        distance = 1.0
+    },
+
+	["burgershotgarage"] = {
+		models = {
+			"ig_floyd"
+		},
+		options = {
+			{
+				type = "client",
+				event = "garage:BurgerShotGarage",
+				icon = "fas fa-car",
+				label = "BurgerShot Garage",
+				job = "burgershot",
+			}
+		},
+		distance = 2.5,
+	},
+
+	["trashsearch"] = {
+        models = {
+			-1096777189,--normal small
+			666561306,--big
+			1437508529,--small circle
+			-1426008804,--small open circle
+			-228596739,--open small circle
+			161465839,--werid blue small circle
+			651101403,--open medium circle
+
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-trashsearch:client:searchtrash",
+                icon = "fas fa-pencil-ruler",
+                label = "Search Trash",
+            },
+        },
+        distance = 2.1
+    },
+
+	["VehicleRental"] = {
+        models = {
+            `a_m_y_business_03`,
+        },
+        options = {
+            {
+                type = "client",
+                event = "qb-rental:openMenu",
+                icon = "fas fa-car",
+                label = "Rent Vehicle",
+            },
+        },
+        distance = 4.0
+    },
+
 }
 
 Config.GlobalPedOptions = {
@@ -98,6 +242,57 @@ Config.GlobalObjectOptions = {
 }
 
 Config.GlobalPlayerOptions = {
+
+	options = {
+		{
+			type = "client",
+			event = "police:client:CuffPlayer",
+			icon = 'fas fa-child',
+			label = 'Fesseln',
+			job = 'police',    
+		},
+		{
+			type = "client",
+			event = "police:client:EscortPlayer",
+			icon = 'fas fa-id-card',
+			label = 'Eskortieren',
+			job = 'police',     
+		},
+		{
+			type = "client",
+			event = "police:client:PutPlayerInVehicle",
+			icon = 'fas fa-arrow-right',
+			label = 'Ins Fahrzeug setzen',
+			job = 'police',     
+		},
+		{
+			type = "client",
+			event = "police:client:SetPlayerOutVehicle",
+			icon = 'fas fa-arrow-left',
+			label = 'Aus dem Fahrzeug holen',
+			job = 'police',     
+		},
+		{
+			type = "client",
+			event = "police:client:RobPlayer",
+			icon ='fas fa-money-bill-alt',
+			label = 'Ausrauben',
+		},
+		{
+			type = "client",
+			event = "police:client:KidnapPlayer",
+			icon ='fas fa-hand-o-up',
+			label = 'Kidnap',
+		},
+		{
+			type = "client",
+			event = "police:client:SearchPlayer",
+			icon ='fas fa-id-card',
+			label = 'Durchsuchen',
+			job = 'police',    
+		},
+		distance = 4.0
+	},
 
 }
 
