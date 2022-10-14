@@ -99,34 +99,19 @@ Config.TargetModels = {
         },
         distance = 2.5,
     },
-	-- In Config.TargetModels
-    ["targetmodel2"] = {
-        models = {
-            "csb_trafficwarden"
-        },
-        options = {
-            {
-                type = "client",
-                event = "qb-firejob:garage", --event that opens the garage
-                icon = "fas fa-car",
-                label = "Garage",
-                job = "lsfd",
-            },
-        },
-        distance = 2.5,
-    },
 
 	["lsfdcar"] = {
 		models = {
 			-- add car names here
 			"firetruk",
 			"lsfd5",
-			"lsfd2"
+			"lsfd2",
+			"909_seahawk",
 		},
 		options = {
             {
-                type = "client",
-                event = "qb-firejob:client:hose",
+                type = "command",
+                event = "hose",
                 icon = "fas fa-fire-extinguisher",
                 label = "Hose",
                 job = 'lsfd'
@@ -291,7 +276,7 @@ Config.GlobalPlayerOptions = {
 			label = 'Durchsuchen',
 			job = 'police',    
 		},
-		distance = 4.0
+		distance = 2.0
 	},
 
 }
