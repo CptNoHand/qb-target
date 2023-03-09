@@ -107,6 +107,10 @@ Config.TargetModels = {
 			"lsfd5",
 			"lsfd2",
 			"909_seahawk",
+			"enladder",
+			"f250pov",
+			"brushram",
+			"enforcer",
 		},
 		options = {
             {
@@ -153,7 +157,7 @@ Config.TargetModels = {
                 type = "command",
                 event = "atm",
                 icon = "fab fa-credit-card",
-                label = "Insert Card",
+                label = "Karte einschieben",
             },
         },
         distance = 1.0
@@ -231,52 +235,12 @@ Config.GlobalPlayerOptions = {
 	options = {
 		{
 			type = "client",
-			event = "police:client:CuffPlayer",
+			event = "police:client:CuffPlayerSoft",
 			icon = 'fas fa-child',
 			label = 'Fesseln',
-			job = 'police',    
-		},
-		{
-			type = "client",
-			event = "police:client:EscortPlayer",
-			icon = 'fas fa-id-card',
-			label = 'Eskortieren',
 			job = 'police',     
 		},
-		{
-			type = "client",
-			event = "police:client:PutPlayerInVehicle",
-			icon = 'fas fa-arrow-right',
-			label = 'Ins Fahrzeug setzen',
-			job = 'police',     
-		},
-		{
-			type = "client",
-			event = "police:client:SetPlayerOutVehicle",
-			icon = 'fas fa-arrow-left',
-			label = 'Aus dem Fahrzeug holen',
-			job = 'police',     
-		},
-		{
-			type = "client",
-			event = "police:client:RobPlayer",
-			icon ='fas fa-money-bill-alt',
-			label = 'Ausrauben',
-		},
-		{
-			type = "client",
-			event = "police:client:KidnapPlayer",
-			icon ='fas fa-hand-o-up',
-			label = 'Kidnap',
-		},
-		{
-			type = "client",
-			event = "police:client:SearchPlayer",
-			icon ='fas fa-id-card',
-			label = 'Durchsuchen',
-			job = 'police',    
-		},
-		distance = 2.0
+		distance = 1.0
 	},
 
 }
