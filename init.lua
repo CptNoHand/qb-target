@@ -48,7 +48,7 @@ Config.SuccessDrawColor = {30, 144, 255, 255}
 Config.OutlineColor = {255, 255, 255, 255}
 
 -- Enable default options (Toggling vehicle doors)
-Config.EnableDefaultOptions = true
+Config.EnableDefaultOptions = false
 
 -- Disable the target eye whilst being in a vehicle
 Config.DisableInVehicle = false
@@ -70,6 +70,31 @@ Config.CircleZones = {
 }
 
 Config.BoxZones = {
+
+	-- CQC-Mugshot
+    ['CQCMugshot'] = {
+		name = 'Mugshot',
+		coords = vector3(473.38, -1012.84, 26.27),
+		debugPoly = false,
+		length = 0.50,
+		width = 0.65,
+		heading = 131.24,
+		maxZ = 28.30,
+		minZ = 24.75,
+		options = {
+			{
+				icon = 'fas fa-camera',
+				label = 'Mugshots',
+				job = {
+					['police'] = 0,
+					['sast'] = 0,
+				},
+				event = 'cqc-mugshot:client:takemugshot',
+				type = 'client',
+			},
+		},
+		distance = 2.0,
+	},
 
 }
 
@@ -254,7 +279,6 @@ Config.Peds = {
 -------------------------------------------------------------------------------
 local function JobCheck() return true end
 local function GangCheck() return true end
-local function JobTypeCheck() return true end
 local function ItemCheck() return true end
 local function CitizenCheck() return true end
 
@@ -296,18 +320,6 @@ CreateThread(function()
 					return true
 				end
 			elseif job == 'all' or job == PlayerData.job.name then
-				return true
-			end
-			return false
-		end
-
-		JobTypeCheck = function(jobType)
-			if type(jobType) == 'table' then
-				jobType = jobType[PlayerData.job.type]
-				if jobType then
-					return true
-				end
-			elseif jobType == 'all' or jobType == PlayerData.job.type then
 				return true
 			end
 			return false
@@ -356,11 +368,7 @@ end)
 function CheckOptions(data, entity, distance)
 	if distance and data.distance and distance > data.distance then return false end
 	if data.job and not JobCheck(data.job) then return false end
-	if data.excludejob and JobCheck(data.excludejob) then return false end
-	if data.jobType and not JobTypeCheck(data.jobType) then return false end
-	if data.excludejobType and JobTypeCheck(data.excludejobType) then return false end
 	if data.gang and not GangCheck(data.gang) then return false end
-	if data.excludegang and GangCheck(data.excludegang) then return false end
 	if data.item and not ItemCheck(data.item) then return false end
 	if data.citizenid and not CitizenCheck(data.citizenid) then return false end
 	if data.canInteract and not data.canInteract(entity, distance, data) then return false end
